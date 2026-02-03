@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8">
+ <title>Music Adding Form</title>
+
+ <!-- Font Awesome -->
+ <link rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+ <style>
+  .view-link {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   text-decoration: none;
+  }
+
+  .view-link i {
+   transition: transform 0.3s ease;
+  }
+
+  .view-link:hover i {
+   transform: scale(1.2);
+  }
+ </style>
+</head>
+<body>
+
+<h1>Adding Music</h1>
+
+<form th:action="@{/create-music}" th:object="${music}" method="post" enctype="multipart/form-data">
+
+ NAME:
+ <input type="text" th:field="*{name}">
+ <br><br><br>
+
+ ARTIST:
+ <input type="text" th:field="*{artist}">
+ <br><br><br>
+
+ MUSIC GENRE:
+ <input type="text" th:field="*{musicGenre}">
+ <br><br><br>
+
+ MUSIC PATH:
+ <input type="file" name="file">
+ <br><br><br>
+
+ <button type="submit">Add Music</button>
+ <br><br>
+
+ <a href="/view" class="btn btn-success view-link">
+  <i class="fa-solid fa-eye fa-beat"></i>
+  View List
+ </a>
+
+</form>
+
+</body>
+</html>
